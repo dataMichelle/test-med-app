@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Appointment.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import FindDoctorSearch from "./FindDoctorSearch/FindDoctorSearch";
-import DoctorCardIC from "../DoctorCardIC/DoctorCardIC";
+import DoctorCard from "../Appointments/DoctorCard/DoctorCard";
 
 const Appointment = () => {
   const [searchParams] = useSearchParams();
@@ -75,7 +75,7 @@ const Appointment = () => {
               </h3>
               {filteredDoctors.length > 0 ? (
                 filteredDoctors.map((doctor) => (
-                  <DoctorCardIC
+                  <DoctorCard
                     className="doctorcard"
                     {...doctor}
                     key={doctor.name}
