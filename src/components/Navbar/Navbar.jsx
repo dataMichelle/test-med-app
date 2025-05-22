@@ -18,7 +18,7 @@ const Navbar = ({ onLoginClick, onSignUpClick, onLogoutClick }) => {
           <Link to="/">Home</Link>
         </li>
         <li className="nav__links active">
-          <Link to="/#services">Appointments</Link>
+          <Link to="/appointment">Appointments</Link>
         </li>
         <li className="nav__links active">
           <Link to="/instant-consultation">Instant Consultation</Link>

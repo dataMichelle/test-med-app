@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./FindDoctorSearchIC.css";
+import "./FindDoctorSearch.css";
 import { useNavigate } from "react-router-dom";
 
 const initSpeciality = [
@@ -12,7 +12,7 @@ const initSpeciality = [
   "Ayurveda",
 ];
 
-const FindDoctorSearchIC = () => {
+const FindDoctorSearch = () => {
   const [doctorResultHidden, setDoctorResultHidden] = useState(true);
   const [searchDoctor, setSearchDoctor] = useState("");
   const [specialities] = useState(initSpeciality);
@@ -22,23 +22,16 @@ const FindDoctorSearchIC = () => {
   const handleDoctorSelect = (speciality) => {
     setSearchDoctor(speciality);
     setDoctorResultHidden(true);
-    navigate(`/instant-consultation?speciality=${speciality}`);
-    // No reload needed, React will update the UI
+    navigate(`/appointment?speciality=${speciality}`);
   };
 
-  // Show dropdown on focus
   const handleFocus = () => setDoctorResultHidden(false);
-
-  // Hide dropdown on blur, but delay so click can register
   const handleBlur = () => setTimeout(() => setDoctorResultHidden(true), 100);
-
-  // Show dropdown and focus input when icon is clicked
   const handleIconClick = () => {
     setDoctorResultHidden(false);
     inputRef.current && inputRef.current.focus();
   };
 
-  // Filter specialities based on input
   const filteredSpecialities = specialities.filter((spec) =>
     spec.toLowerCase().includes(searchDoctor.toLowerCase())
   );
@@ -46,21 +39,14 @@ const FindDoctorSearchIC = () => {
   return (
     <div className="finddoctor">
       <center>
-        <h1>Find a doctor and Consult instantly</h1>
+        <h1>Find a doctor and Book an Appointment</h1>
         <div>
           <i
             style={{ color: "#000000", fontSize: "20rem" }}
             className="fa fa-user-md"
           ></i>
         </div>
-        <div
-          className="home-search-container"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="home-search-container">
           <div className="doctor-search-box">
             <input
               type="text"
@@ -94,7 +80,6 @@ const FindDoctorSearchIC = () => {
                       src={"/images/search.svg"}
                       alt=""
                       style={{ height: "10px", width: "10px" }}
-                      width="12"
                     />
                   </span>
                   <span>{speciality}</span>
@@ -109,4 +94,4 @@ const FindDoctorSearchIC = () => {
   );
 };
 
-export default FindDoctorSearchIC;
+export default FindDoctorSearch;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./InstantConsultation.css";
+import "./Appointment.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import FindDoctorSearchIC from "./FindDoctorSearchIC/FindDoctorSearchIC";
+import FindDoctorSearch from "./FindDoctorSearch/FindDoctorSearch";
 import DoctorCardIC from "../DoctorCardIC/DoctorCardIC";
 
-const InstantConsultation = () => {
+const Appointment = () => {
   const [searchParams] = useSearchParams();
   const [doctors, setDoctors] = useState([]);
   const [filteredDoctors, setFilteredDoctors] = useState([]);
@@ -61,7 +61,7 @@ const InstantConsultation = () => {
   return (
     <center>
       <div className="searchpage-container">
-        <FindDoctorSearchIC onSearch={handleSearch} />
+        <FindDoctorSearch onSearch={handleSearch} />
         <div className="search-results-container">
           {isSearched ? (
             <center>
@@ -94,4 +94,4 @@ const InstantConsultation = () => {
   );
 };
 
-export default InstantConsultation;
+export default Appointment;
