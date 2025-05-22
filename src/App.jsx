@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import SignUp from "./components/Sign_Up/SignUp";
 import Login from "./components/Login/Login";
 import Modal from "./components/Modal";
+import InstantConsultation from "./components/InstantConsultationBooking/InstantConsultation";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         {/* You can keep the routes for direct navigation if you want */}
+        <Route path="/instant-consultation" element={<InstantConsultation />} />
       </Routes>
     </>
   );

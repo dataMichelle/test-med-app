@@ -20,6 +20,9 @@ const Navbar = ({ onLoginClick, onSignUpClick, onLogoutClick }) => {
         <li className="nav__links active">
           <Link to="/#services">Appointments</Link>
         </li>
+        <li className="nav__links active">
+          <Link to="/instant-consultation">Instant Consultation</Link>
+        </li>
         <li className="link">
           {isLoggedIn ? (
             <span className="welcome-text">Welcome, {username || "User"}</span>
