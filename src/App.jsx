@@ -1,13 +1,31 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Navbar from "./components/Navbar/Navbar";
+import SignUp from "./components/Sign_Up/SignUp";
+import Login from "./components/Login/Login";
+import Modal from "./components/Modal";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        onLoginClick={() => setShowLogin(true)}
+        onSignUpClick={() => setShowSignUp(true)}
+      />
+      <Modal show={showLogin} onClose={() => setShowLogin(false)}>
+        <Login />
+      </Modal>
+      <Modal show={showSignUp} onClose={() => setShowSignUp(false)}>
+        <SignUp />
+      </Modal>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        {/* You can keep the routes for direct navigation if you want */}
       </Routes>
     </>
   );
