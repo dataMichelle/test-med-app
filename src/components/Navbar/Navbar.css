@@ -174,6 +174,27 @@ nav {
 }
 
 /* Button styles */
+
+.btn1,
+.btn2 {
+  padding: 7px 16px;
+  height: 30 px; /* Set a smaller height */
+  font-size: 1rem;
+  border: 2px solid #3685fb;
+  background-color: white;
+  color: black;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn1:hover,
+.btn2:hover {
+  background-color: #3685fb;
+  color: white;
+}
+
 .btn1 {
   border: 2px solid #3685fb;
   background-color: white;

@@ -16,12 +16,26 @@ function App() {
       <Navbar
         onLoginClick={() => setShowLogin(true)}
         onSignUpClick={() => setShowSignUp(true)}
+        onLogoutClick={() => {
+          sessionStorage.clear(); // Remove all session data
+          window.location.reload(); // Refresh to update UI
+        }}
       />
       <Modal show={showLogin} onClose={() => setShowLogin(false)}>
-        <Login />
+        <Login
+          onShowSignUpModal={() => {
+            setShowLogin(false);
+            setShowSignUp(true);
+          }}
+        />
       </Modal>
       <Modal show={showSignUp} onClose={() => setShowSignUp(false)}>
-        <SignUp />
+        <SignUp
+          onShowLoginModal={() => {
+            setShowSignUp(false);
+            setShowLogin(true);
+          }}
+        />
       </Modal>
       <Routes>
         <Route path="/" element={<LandingPage />} />
